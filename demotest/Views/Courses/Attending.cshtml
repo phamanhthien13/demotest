@@ -3,7 +3,7 @@
 
 <div class="course">
     <ul>
-        @foreach(var course in Model.UpcommingCourses)
+        @foreach (var course in Model.UpcommingCourses)
         {
 <li>
     <div class="date">
@@ -19,25 +19,22 @@
             @course.Lecturer.Name
             @if (Model.ShowAction)
             {
-                <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
-            }
+<button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>}
         </span>
         <span>
             @course.Category.Name
         </span>
         @if (Model.ShowAction)
         {
-             <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
+            <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
         }
-        
+
     </div>
-</li>
-}
+</li>}
     </ul>
     @section scripts
     {
-        <script>
-            $(document).ready(function () {
+        <script>$(document).ready(function () {
                 $("*.js-toggle-attendance").click(function (e) {
                     var button = $(s.target);
                     $.post("/api/attendances", {
@@ -59,6 +56,5 @@
                                 .fail(function () {
                                     alert("Something failed!");
                                 });
-                });
-        </script>
+                });</script>
     }

@@ -9,6 +9,9 @@ namespace demotest.ViewModels
 {
     public class CourseViewModel
     {
+        internal string Heading;
+        internal int Id;
+
         [Required]
         public string Place { get; set; }
         [Required]
@@ -24,5 +27,7 @@ namespace demotest.ViewModels
         {
             return DateTime.Parse(string.Format("{0} {1}", Date, Time));
         }
+       
     }
+
 }
